@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import type { Route } from "next";
-import AthrolisLogo from "@/components/core/ui/AthrolisLogo"; // ⬅️ adapte le chemin
+import AthrolisLogo from "@/components/core/ui/AthrolisLogo";
 
 export default function DesktopNav() {
   const pathname = usePathname();
@@ -31,8 +31,8 @@ export default function DesktopNav() {
             key={href}
             href={href}
             className={clsx(
-              "text-sm font-medium transition-colors hover:text-[hsl(var(--brand))]",
-              pathname === href ? "text-[hsl(var(--brand))]" : "text-white"
+              "text-sm font-medium transition-colors hover:text-mint",
+              pathname === href ? "text-mint" : "text-white"
             )}
           >
             {label}
@@ -43,7 +43,7 @@ export default function DesktopNav() {
       <div>
         <Link
           href={"/book" as Route}
-          className="px-4 py-3 border text-sm font-medium transition-colors border-[hsl(var(--border-brand))] text-[hsl(var(--brand))]"
+          className="px-4 py-3 border text-sm font-medium transition-colors border-muted text-mint"
         >
           Book a consultation
         </Link>

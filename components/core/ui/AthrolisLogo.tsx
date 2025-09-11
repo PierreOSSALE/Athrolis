@@ -32,7 +32,7 @@ export default function AthrolisLogo() {
 
   return (
     <Link href={"/" as Route} className="relative inline-block">
-      <span className="text-[hsl(var(--brand))] text-2xl tracking-wide relative z-10">
+      <span className="text-mint text-2xl tracking-wide relative z-10">
         Athrolis
       </span>
 
@@ -47,7 +47,7 @@ export default function AthrolisLogo() {
         <path
           ref={pathRef}
           d="M0,10 C30,0 70,0 100,10"
-          stroke="hsl(var(--brand))"
+          stroke="var(--color-mint)"
           strokeWidth="1.5"
           fill="transparent"
           opacity={0}

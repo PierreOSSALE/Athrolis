@@ -62,7 +62,7 @@ export default function HomeOnlyLoader({ onFinish }: { onFinish: () => void }) {
   }, [progress, imageLoaded, onFinish]);
 
   return (
-    <div className="fixed inset-0 bg-[hsl(var(--bg))] text-[hsl(var(--text))] grid place-items-center z-50">
+    <div className="fixed inset-0 bg-deep-forest text-white grid place-items-center z-50">
       <div className="text-center space-y-6">
         <div className="relative inline-block">
           <h1 className="text-4xl font-bold tracking-wider relative z-10">
@@ -78,7 +78,7 @@ export default function HomeOnlyLoader({ onFinish }: { onFinish: () => void }) {
             <path
               ref={pathRef}
               d="M0,10 C30,0 70,0 100,10"
-              stroke="hsl(var(--brand))"
+              stroke="var(--color-mint)"
               strokeWidth="1.5"
               fill="transparent"
               opacity={0}
@@ -88,7 +88,7 @@ export default function HomeOnlyLoader({ onFinish }: { onFinish: () => void }) {
 
         <div className="w-64 h-2 bg-white/10 rounded">
           <div
-            className="h-full bg-[hsl(var(--brand))] rounded transition-all duration-300"
+            className="h-full bg-mint rounded transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>

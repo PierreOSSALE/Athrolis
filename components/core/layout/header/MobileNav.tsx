@@ -29,7 +29,7 @@ export default function MobileNav() {
 
       <div
         className={clsx(
-          "fixed inset-0 z-40 bg-[hsl(var(--bg))] transition-transform duration-300",
+          "fixed inset-0 z-40 bg-deep-forest transition-transform duration-300",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >

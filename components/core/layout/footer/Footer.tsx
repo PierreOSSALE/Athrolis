@@ -6,14 +6,11 @@ import type { Route } from "next";
 
 export default function Footer() {
   return (
-    <footer className="bg-[hsl(var(--bg))] text-[hsl(var(--text))] border-t border-[hsl(var(--border))] py-8 px-6">
+    <footer className="bg-deep-forest text-[hsl(var(--text))] border-t border-muted py-8 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         {/* Col 1: Logo + Réseaux */}
         <div className="space-y-4">
-          <Link
-            href="/"
-            className="inline-block text-[hsl(var(--brand))] text-xl font-bold"
-          >
+          <Link href="/" className="inline-block text-mint text-xl font-bold">
             Athrolis
           </Link>
 
@@ -26,7 +23,7 @@ export default function Footer() {
           >
             <path
               d="M0,10 C30,0 70,0 100,10"
-              stroke="hsl(var(--brand))"
+              stroke="(var(--muted)"
               strokeWidth="1.5"
               fill="transparent"
             />

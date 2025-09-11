@@ -17,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${albertSans.variable} ${inter.variable}`}>
-      <body className="bg-[hsl(var(--bg))] text-[hsl(var(--text))] font-body antialiased">
+      <body className="bg-dark text-white font-body antialiased">
         <Header />
-        <main className="">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

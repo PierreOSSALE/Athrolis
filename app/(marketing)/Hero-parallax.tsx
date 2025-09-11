@@ -1,4 +1,5 @@
 // app/(marketing)/HeroParallax.tsx
+// app/(marketing)/HeroParallax.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -28,7 +29,6 @@ export default function HeroParallax() {
 
     requestAnimationFrame(raf);
 
-    // Animations GSAP
     gsap.fromTo(
       headingRef.current,
       { opacity: 0, y: 60 },
@@ -86,18 +86,18 @@ export default function HeroParallax() {
       ref={sectionRef}
       className="relative isolate w-full min-h-[100svh] flex items-center justify-center px-6"
     >
-      {/* ✅ Nouveau fond en bg-image (sans flash) */}
+      {/* ✅ Background image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: 'url("/images/bg-hero.jpg")' }}
       />
 
-      {/* ✅ Overlay noir + dégradé */}
+      {/* ✅ Overlays */}
       <div className="absolute top-0 left-0 z-10 bg-black/60 w-full h-full" />
       <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.75),transparent)] z-20" />
 
-      {/* ✅ Contenu */}
-      <div className="relative z-30 text-center max-w-3xl text-[hsl(var(--text))] space-y-6 mt-32">
+      {/* ✅ Content */}
+      <div className="relative z-30 text-center max-w-3xl text-white space-y-6 mt-32">
         <h1
           ref={headingRef}
           className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight font-heading uppercase italic bold"
@@ -118,7 +118,7 @@ export default function HeroParallax() {
           <a
             ref={buttonRef}
             href="/book"
-            className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-md border border-[hsl(var(--brand))] bg-[hsl(var(--brand))] text-[hsl(var(--brand-foreground))] hover:opacity-90 transition-colors"
+            className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-md border border-mint bg-mint text-mint-contrast hover:opacity-90 transition-colors"
           >
             Book a free consultation <FaArrowRight />
           </a>

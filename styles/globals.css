@@ -1,25 +1,6 @@
+/*style/globals.css*/
 @import "tailwindcss";
-/* :root{ /* 🎨 Palette Athrolis (HEX + noms explicites) 
-  --color-white: #ffffff;
-  --color-dark-olive: #080d05;
-  --color-deep-forest: #10190d;
-  --color-black: #000000;
-  --color-muted: #737572;
-  --color-mint: #e0ffd9;
-  --color-mint-contrast: #080d05;
-  --color-forest-1: #090c06;
-  --color-forest-2: #292f28;
 
-
---color-text: #ffffff;
-  --color-text-secondary: #080d05;
-  --color-bg: #10190d;
-  --color-card: #000000;
-  --color-border: #737572;
-  --color-brand: #e0ffd9;
-  --color-brand-foreground: #080d05;
-  --color-section-1: #090c06;
-  --color-section-2: #292f28;} */
 @theme {
   /* ===== Fonts ===== */
   --font-body: var(--font-albert);
@@ -97,5 +78,10 @@
 /* Pour texte outline type "MOVE BEYOND LIMITS" */
 .font-outline {
   -webkit-text-stroke: 1px white;
+  font-weight: bolder;
+}
+
+.font-outline-deep-forest {
+  -webkit-text-stroke: 1px #10190d;
   font-weight: bolder;
 }

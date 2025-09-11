@@ -17,9 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${albertSans.variable} ${inter.variable}`}>
-      <body className="bg-dark text-white font-body antialiased">
+      <body className="bg-deep-forest text-white font-body antialiased">
+        {" "}
         <Header />
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

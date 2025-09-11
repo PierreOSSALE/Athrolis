@@ -3,10 +3,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { FaArrowRight } from "react-icons/fa6";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
+import CallToActionButton from "@/components/core/ui/CallToActionButton";
 
 export default function HeroParallax() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -94,7 +94,7 @@ export default function HeroParallax() {
 
       {/* ✅ Overlays */}
       <div className="absolute top-0 left-0 z-10 bg-black/60 w-full h-full" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.75),transparent)] z-20" />
+      {/* <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.75),transparent)] z-20" /> */}
 
       {/* ✅ Content */}
       <div className="relative z-30 text-center max-w-3xl text-white space-y-6 mt-32">
@@ -114,15 +114,7 @@ export default function HeroParallax() {
           beyond your limits — because you’re built for more.
         </p>
 
-        <div className="pt-4 flex justify-center">
-          <a
-            ref={buttonRef}
-            href="/book"
-            className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-md border border-mint bg-mint text-mint-contrast hover:opacity-90 transition-colors"
-          >
-            Book a free consultation <FaArrowRight />
-          </a>
-        </div>
+        <CallToActionButton href={""} label="Book a free consultation" />
       </div>
     </section>
   );

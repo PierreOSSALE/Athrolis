@@ -1,0 +1,129 @@
+// app/(marketing)/HeroParallax.tsx
+"use client";
+
+import { useEffect, useRef } from "react";
+import { FaArrowRight } from "react-icons/fa6";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
+
+export default function HeroParallax() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subtextRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    // Animations GSAP
+    gsap.fromTo(
+      headingRef.current,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      subtextRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: subtextRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      buttonRef.current,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: buttonRef.current,
+          start: "top 90%",
+        },
+      }
+    );
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative isolate w-full min-h-[100svh] flex items-center justify-center px-6"
+    >
+      {/* ✅ Nouveau fond en bg-image (sans flash) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: 'url("/images/bg-hero.jpg")' }}
+      />
+
+      {/* ✅ Overlay noir + dégradé */}
+      <div className="absolute top-0 left-0 z-10 bg-black/60 w-full h-full" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.75),transparent)] z-20" />
+
+      {/* ✅ Contenu */}
+      <div className="relative z-30 text-center max-w-3xl text-[hsl(var(--text))] space-y-6 mt-32">
+        <h1
+          ref={headingRef}
+          className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight font-heading uppercase italic bold"
+        >
+          Athrolis <br />
+          <span className="font-outline text-transparent">
+            Move beyond limits
+          </span>
+        </h1>
+
+        <p ref={subtextRef} className="text-base sm:text-lg text-white/80">
+          Transform your body and mindset with <strong>Athrolis</strong>.
+          Discover premium coaching and training programs tailored to push you
+          beyond your limits — because you’re built for more.
+        </p>
+
+        <div className="pt-4 flex justify-center">
+          <a
+            ref={buttonRef}
+            href="/book"
+            className="flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-md border border-[hsl(var(--brand))] bg-[hsl(var(--brand))] text-[hsl(var(--brand-foreground))] hover:opacity-90 transition-colors"
+          >
+            Book a free consultation <FaArrowRight />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

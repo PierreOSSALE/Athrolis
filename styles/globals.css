@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --font-body: var(--font-albert);
+  --font-heading: var(--font-inter);
+
+  /* Palette Athrolis */
+  --text: 0 0% 100%; /* #ffffff */
+  --text-secondary: 120 100% 2%; /* #080d05 */
+  --bg: 120 22% 8%; /* #10190d */
+  --card: 0 0% 0%; /* #000000 */
+  --border: 90 2% 46%; /* #737572 */
+  --brand: 96 100% 93%; /* #e0ffd9 */
+  --brand-foreground: 120 100% 2%;
+  --section-bg-1: 96 20% 3%; /* #090c06 */
+  --section-bg-2: 96 7% 18%; /* #292f28 */
+
+  /* Breakpoints (v4) */
+  --breakpoint-xxs: 360px;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
+
+  /* Animations */
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-scale-in: scaleIn 0.25s ease-out;
+  --animate-slide-down: slideDown 0.3s ease-out;
+  --animate-fade-in: fadeIn 0.4s ease-in-out;
+}
+@theme {
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+
+  --color-text: hsl(var(--text));
+  --color-text-secondary: hsl(var(--text-secondary));
+  --color-bg: hsl(var(--bg));
+  --color-card: hsl(var(--card));
+  --color-border: hsl(var(--border));
+  --color-brand: hsl(var(--brand));
+  --color-brand-foreground: hsl(var(--brand-foreground));
+  --color-section-1: hsl(var(--section-bg-1));
+  --color-section-2: hsl(var(--section-bg-2));
+}
+
+/* Utilitaires typographiques */
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-heading {
+  font-family: var(--font-inter);
+}
+
+/* Pour texte outline type "MOVE BEYOND LIMITS" */
+.font-outline {
+  -webkit-text-stroke: 1px white;
+  font-weight: bolder;
+}

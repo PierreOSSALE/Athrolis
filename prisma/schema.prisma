@@ -1,0 +1,118 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @db.Uuid                 // <- UUID (lié à Supabase Auth)
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bookings  Booking[]
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  createdAt DateTime @default(now())
+
+  Testimonial Testimonial[]
+
+  Class Class[]
+
+  Trainer Trainer[]
+}
+
+model Trainer {
+  id          String   @id @default(cuid())
+  name        String
+  role        String?
+  bio         String?
+  avatarId    String?
+  avatar      Media?   @relation(fields: [avatarId], references: [id])
+  socials     Json?
+  classes     Class[]  @relation("TrainerClasses")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ClassCategory {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  createdAt DateTime @default(now())
+
+  Class Class[]
+}
+
+model Class {
+  id            String         @id @default(cuid())
+  title         String
+  slug          String         @unique
+  excerpt       String?
+  coverId       String?
+  cover         Media?         @relation(fields: [coverId], references: [id])
+  categoryId    String?
+  category      ClassCategory? @relation(fields: [categoryId], references: [id])
+  intensity     Intensity      @default(MEDIUM)
+  trainers      Trainer[]      @relation("TrainerClasses")
+  schedules     ClassSchedule[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  Booking Booking[]
+}
+
+enum Intensity {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model ClassSchedule {
+  id        String   @id @default(cuid())
+  classId   String
+  class     Class    @relation(fields: [classId], references: [id])
+  weekday   Int
+  startTime String
+  endTime   String
+  room      String?
+}
+
+model MembershipPlan {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  price       Int
+  per         String
+  features    String[]
+  highlight   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Booking {
+  id        String   @id @default(cuid())
+  userId    String   @db.Uuid                     // <- UUID
+  user      User     @relation(fields: [userId], references: [id])
+  classId   String
+  class     Class    @relation(fields: [classId], references: [id])
+  date      DateTime
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  author    String
+  quote     String
+  avatarId  String?
+  avatar    Media?   @relation(fields: [avatarId], references: [id])
+  createdAt DateTime @default(now())
+}

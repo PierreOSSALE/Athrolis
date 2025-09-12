@@ -5,9 +5,9 @@ import ServicesCard from "./ServicesCard";
 
 export default function ServicesGridSection() {
   return (
-    <section className="bg-deep-forest py-16 px-6 sm:px-10">
+    <section id="services" className="bg-deep-forest py-16 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-white text-3xl sm:text-5xl font-heading font-semibold mb-12">
+        <h2 className="text-center text-white text-2xl sm:text-5xl font-heading font-semibold mb-12 max-w-800 mx-auto p-4">
           <span className="italic">SERVICES ADAPTED TO </span>
           <span className="italic text-mint">FIT YOU</span>
         </h2>

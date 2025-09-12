@@ -11,7 +11,7 @@ type Props = {
   href: string;
 };
 
-export default function ServiceCard({ title, image, href }: Props) {
+export default function ServicesCard({ title, image, href }: Props) {
   return (
     <Link
       href={href as Route}

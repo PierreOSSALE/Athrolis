@@ -25,9 +25,9 @@ export default function ResultsThatLastSection() {
         className=" -z-1"
       />{" "}
       <div className="absolute top-0 left-0 -z-1 bg-black/80 w-full h-full" />
-      <div className="w-full max-w-[75rem] p-4 sm:px-6 lg:p-12  flex flex-col sm:flex-row justify-between items-start gap-10">
+      <div className="w-full max-w-[75rem] p-4 sm:px-6 lg:p-12  flex flex-col md:flex-row justify-between items-start gap-10">
         {/* Texte à gauche */}
-        <div className="sm:max-w-md space-y-6">
+        <div className="sm:max-w-md space-y-6 text-center md:text-left">
           <h2 className="text-3xl sm:text-4xl font-heading font-bold italic">
             <span className="text-white">RESULTS THAT </span>
             <span className="text-mint">LAST</span>
@@ -43,7 +43,7 @@ export default function ResultsThatLastSection() {
         </div>
 
         {/* Liste à droite */}
-        <ul className="space-y-4 text-base sm:text-lg">
+        <ul className="space-y-4 text-base sm:text-lg m-auto md:m-0 p-6 w-full sm:max-w-sm">
           {checklist.map((item, idx) => (
             <li key={idx} className="flex items-start gap-3">
               <Check className="min-w-5 min-h-5 text-mint mt-1" />

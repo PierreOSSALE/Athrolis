@@ -1,5 +1,4 @@
 // components/core/layout/header/Header.tsx
-// components/core/layout/header/Header.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -23,18 +22,15 @@ export default function Header() {
     const handleScroll = () => {
       const current = window.scrollY;
 
-      // Affiche le header si on remonte
       if (current < lastScroll.current) {
         setShow(true);
         el.classList.add("scrolled");
       } else {
-        // Cache le header si on descend
         if (current > 10) {
           setShow(false);
         }
       }
 
-      // Supprime le flou si on est tout en haut
       if (current < 10) {
         el.classList.remove("scrolled");
       }
@@ -50,12 +46,22 @@ export default function Header() {
     <header
       ref={headerRef}
       className={clsx(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-1000 ease-in-out",
-        "supports-[backdrop-filter]:bg-transparent",
-        show ? "translate-y-0" : "-translate-y-full"
+        "fixed inset-x-0 top-0 z-50",
+        "transition-all duration-1000 ease-in-out"
+        // show ? "translate-y-0" : "-translate-y-10"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 🔳 BLUR overlay avec mask */}
+      <div
+        className={clsx(
+          "absolute inset-x-0 top-0 h-80 z-0",
+          "backdrop-blur-3xl bg-black/80",
+          "mask-[linear-gradient(to_bottom,white,transparent)]"
+        )}
+      />
+
+      {/* ✅ Contenu non flouté */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
         <div className="px-6 py-10 flex items-center justify-between">
           <DesktopNav />
           <MobileNav />

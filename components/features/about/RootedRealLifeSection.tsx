@@ -6,16 +6,16 @@ import PhoneVideoFrame from "@/components/core/ui/PhoneVideoFrame";
 
 export default function RootedRealLifeSection() {
   return (
-    <section className="w-full bg-deep-forest text-white min-h-svh ">
+    <section id="about" className="w-full bg-deep-forest text-white min-h-svh ">
       <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left image and phone */}
-        <div className="relative w-xl min-h-svh flex justify-center py-4">
+        <div className="relative w-xl min-h-60 md:min-h-svh flex justify-center py-4">
           <img
             src="/images/bg-hero.png"
             alt="Coach background"
             className="absolute inset-0 w-full h-full object-cover opacity-20 -z-0"
           />
-          <div className="absolute top-28 left-2/3">
+          <div className="absolute top-36 left-8 lg:top-28  lg:left-2/3">
             <PhoneVideoFrame src="/videos/demo-kb-push.mp4" />
           </div>
         </div>

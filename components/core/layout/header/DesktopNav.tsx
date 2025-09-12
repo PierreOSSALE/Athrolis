@@ -11,14 +11,13 @@ export default function DesktopNav() {
   const pathname = usePathname();
 
   const navItems: { href: Route; label: string }[] = [
-    { href: "/services", label: "Services" },
-    { href: "/about", label: "About" },
-    { href: "/how-it-works", label: "How it works" },
+    { href: "/#services", label: "Services" },
+    { href: "/#about", label: "About" },
+    { href: "/#how-it-works", label: "How it works" },
   ];
 
   return (
-    <nav className="hidden md:flex items-center justify-between gap-8 w-full mt-4">
-      {/* 🔥 Athrolis = couleur du logo */}
+    <nav className="hidden md:flex items-center justify-between gap-8 w-full mt-4 z-50">
       <AthrolisLogo
         key={
           typeof window !== "undefined" ? window.location.pathname : "static"

@@ -7,9 +7,9 @@ import type { Route } from "next";
 export default function Footer() {
   return (
     <footer className="bg-deep-forest text-[hsl(var(--text))] border-t border-muted py-8 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 ">
         {/* Col 1: Logo + Réseaux */}
-        <div className="space-y-4">
+        <div className="space-y-4 p-2 md:p-0">
           <Link href="/" className="inline-block text-mint text-xl font-bold">
             Athrolis
           </Link>
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* Col 2: About */}
-        <div>
+        <div className=" p-2 md:p-0">
           <h4 className="text-sm font-semibold mb-3">ABOUT</h4>
           <ul className="space-y-2 text-sm text-white/80">
             <li>
@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
 
         {/* Col 3: Services */}
-        <div>
+        <div className=" p-2 md:p-0 ">
           <h4 className="text-sm font-semibold mb-3">SERVICES</h4>
           <ul className="space-y-2 text-sm text-white/80">
             <li>
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Col 4: Logos */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col p-2 md:p-0 gap-4 ">
           {" "}
           <div className="flex items-center gap-1 text-[11px]">
             <Image
@@ -99,8 +99,10 @@ export default function Footer() {
       </div>
 
       <div className="flex items-center justify-between mx-auto max-w-7xl mt-15 pt-4 text-white/60 text-sm ">
-        <span className="mt-1">&copy; 2025 Athrolis. All rights reserved.</span>
-        <div className=" flex justify-center gap-6 mt-1">
+        <span className="mt-1 w-full md:w-auto text-center">
+          &copy; 2025 Athrolis. All rights reserved.
+        </span>
+        <div className="hidden md:flex justify-center md:gap-6 mt-1">
           <Link href={"/terms" as Route}>Terms & conditions</Link>
           <Link href={"/privacy" as Route}>Privacy policy</Link>
         </div>

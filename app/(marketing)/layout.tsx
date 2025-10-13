@@ -73,9 +73,9 @@ export const metadata = {
     },
   },
   icons: {
-    icon: "/images/Athrolis.png",
-    shortcut: "/images/Athrolis.png",
-    apple: "/images/Athrolis.png",
+    icon: "/Athrolis.png",
+    shortcut: "/Athrolis.png",
+    apple: "/Athrolis.png",
   },
   category: "Fitness & Health Coaching",
   generator: "Next.js 15 + Tailwind CSS",

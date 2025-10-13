@@ -10,7 +10,7 @@ export default function PhoneVideoFrame({ src }: { src: string }) {
         muted
         loop
         playsInline
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover "
       />
     </div>
   );

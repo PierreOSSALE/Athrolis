@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import Header from "@/components/core/layout/header/Header";
 import { albertSans, inter } from "@/components/core/ui/fonts";
 import Footer from "@/components/core/layout/footer/Footer";
+import LenisProvider from "@/components/core/layout/provider/LenisProvider";
 
 export const metadata = {
   title: "Athrolis — Elite Fitness Club",
@@ -89,9 +90,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${albertSans.variable} ${inter.variable}`}>
       <body className="bg-deep-forest text-white font-body antialiased">
-        <Header />
-        <main className="overflow-x-hidden">{children}</main>
-        <Footer />
+        <LenisProvider>
+          <Header />
+          <main className="overflow-x-hidden">{children}</main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-// components/core/provider/LenisProvider.tsx
 // components/core/layout/provider/LenisProvider.tsx
 "use client";
 
@@ -15,7 +14,7 @@ export default function LenisProvider({
       lerp: 0.08,
       duration: 1.2,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
     });
 
     function raf(time: number) {
